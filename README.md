@@ -1,83 +1,99 @@
 # MySQL笔记
 持续更新中 ~ 本书一共30章 目前学习到 21章 还有9章就学习完了，继续学下一本
-- [MySQL笔记](#mysql笔记)
-  - [查询去除重复的结果集](#查询去除重复的结果集)
-    - [限制结果集](#限制结果集)
-      - [使用完全限定的表名查询](#使用完全限定的表名查询)
-      - [排序查询结果集](#排序查询结果集)
-        - [指定排序方向关键字 desc acs](#指定排序方向关键字-desc-acs)
-        - [order by 与 limit](#order-by-与-limit)
-      - [过滤数据](#过滤数据)
-        - [where 子句操作符](#where-子句操作符)
-      - [空值检查](#空值检查)
-      - [组合where 子句](#组合where-子句)
-        - [逻辑操作符 and or`](#逻辑操作符-and-or)
-        - [操作符 in](#操作符-in)
-        - [操作符 not](#操作符-not)
-        - [like操作符](#like操作符)
-        - [_操作符](#_操作符)
-      - [用正则表达式进行查询](#用正则表达式进行查询)
-        - [基本字符匹配](#基本字符匹配)
-        - [进行 or 匹配](#进行-or-匹配)
-        - [匹配范围](#匹配范围)
-        - [匹配特殊字符](#匹配特殊字符)
-        - [匹配多个实例](#匹配多个实例)
-        - [定位符](#定位符)
-      - [创建计算字段](#创建计算字段)
-        - [计算字段](#计算字段)
-        - [去除空格](#去除空格)
-        - [使用别名](#使用别名)
-        - [执行算数计算](#执行算数计算)
-      - [使用数据处理函数](#使用数据处理函数)
-        - [文本处理函数](#文本处理函数)
-        - [日期时间处理函数](#日期时间处理函数)
-        - [数值处理函数](#数值处理函数)
-      - [汇总数据](#汇总数据)
-        - [聚集函数](#聚集函数)
-        - [组合聚集函数](#组合聚集函数)
-      - [分组数据](#分组数据)
-        - [创建分组](#创建分组)
-        - [过滤分组](#过滤分组)
-        - [子句顺序](#子句顺序)
-      - [使用子查询](#使用子查询)
-        - [子查询](#子查询)
-        - [作为计算字段使用子查询](#作为计算字段使用子查询)
-      - [联结表](#联结表)
-        - [内部联结](#内部联结)
-        - [左联结](#左联结)
-        - [右联结](#右联结)
-      - [创建高级联结](#创建高级联结)
-        - [使用表别名](#使用表别名)
-        - [自联结](#自联结)
-        - [使用带聚集函数的联结](#使用带聚集函数的联结)
-      - [组合查询/复合查询](#组合查询复合查询)
-        - [使用union](#使用union)
-      - [全文本搜索](#全文本搜索)
-        - [要点](#要点)
-        - [进行全文搜索](#进行全文搜索)
-        - [使用查询扩展](#使用查询扩展)
-        - [布尔文本搜索](#布尔文本搜索)
-        - [布尔全文搜索操作符](#布尔全文搜索操作符)
-        - [注意事项](#注意事项)
-      - [插入数据](#插入数据)
-        - [数据插入](#数据插入)
-        - [插入多个行](#插入多个行)
-        - [将查询出的数据插入到另一个表中](#将查询出的数据插入到另一个表中)
-      - [更新和删除数据](#更新和删除数据)
-        - [更新数据](#更新数据)
-        - [update 使用子查询](#update-使用子查询)
-        - [删除数据](#删除数据)
-      - [创建和操控表](#创建和操控表)
-        - [创建表](#创建表)
-        - [not null](#not-null)
-        - [主键](#主键)
-        - [auto_increment](#auto_increment)
-        - [last_insert_id](#last_insert_id)
-        - [指定默认值](#指定默认值)
-        - [引擎类型](#引擎类型)
-        - [更新表](#更新表)
-        - [删除表](#删除表)
-        - [重命表](#重命表)
+
+[MySQL笔记](#mysql笔记)
+- [查询去除重复的结果集](#查询去除重复的结果集)
+  - [限制结果集](#限制结果集)
+    - [使用完全限定的表名查询](#使用完全限定的表名查询)
+    - [排序查询结果集](#排序查询结果集)
+      - [指定排序方向关键字 desc acs](#指定排序方向关键字-desc-acs)
+      - [order by 与 limit](#order-by-与-limit)
+    - [过滤数据](#过滤数据)
+      - [where 子句操作符](#where-子句操作符)
+    - [空值检查](#空值检查)
+    - [组合where 子句](#组合where-子句)
+      - [逻辑操作符 and or\`](#逻辑操作符-and-or)
+      - [操作符 in](#操作符-in)
+      - [操作符 not](#操作符-not)
+      - [like操作符](#like操作符)
+      - [\_操作符](#_操作符)
+    - [用正则表达式进行查询](#用正则表达式进行查询)
+      - [基本字符匹配](#基本字符匹配)
+      - [进行 or 匹配](#进行-or-匹配)
+      - [匹配范围](#匹配范围)
+      - [匹配特殊字符](#匹配特殊字符)
+      - [匹配多个实例](#匹配多个实例)
+      - [定位符](#定位符)
+    - [创建计算字段](#创建计算字段)
+      - [计算字段](#计算字段)
+      - [去除空格](#去除空格)
+      - [使用别名](#使用别名)
+      - [执行算数计算](#执行算数计算)
+    - [使用数据处理函数](#使用数据处理函数)
+      - [文本处理函数](#文本处理函数)
+      - [日期时间处理函数](#日期时间处理函数)
+      - [数值处理函数](#数值处理函数)
+    - [汇总数据](#汇总数据)
+      - [聚集函数](#聚集函数)
+      - [组合聚集函数](#组合聚集函数)
+    - [分组数据](#分组数据)
+      - [创建分组](#创建分组)
+      - [过滤分组](#过滤分组)
+      - [子句顺序](#子句顺序)
+    - [使用子查询](#使用子查询)
+      - [子查询](#子查询)
+      - [作为计算字段使用子查询](#作为计算字段使用子查询)
+    - [联结表](#联结表)
+      - [内部联结](#内部联结)
+      - [左联结](#左联结)
+      - [右联结](#右联结)
+    - [创建高级联结](#创建高级联结)
+      - [使用表别名](#使用表别名)
+      - [自联结](#自联结)
+      - [使用带聚集函数的联结](#使用带聚集函数的联结)
+    - [组合查询/复合查询](#组合查询复合查询)
+      - [使用union](#使用union)
+    - [全文本搜索](#全文本搜索)
+      - [要点](#要点)
+      - [进行全文搜索](#进行全文搜索)
+      - [使用查询扩展](#使用查询扩展)
+      - [布尔文本搜索](#布尔文本搜索)
+      - [布尔全文搜索操作符](#布尔全文搜索操作符)
+      - [注意事项](#注意事项)
+    - [插入数据](#插入数据)
+      - [数据插入](#数据插入)
+      - [插入多个行](#插入多个行)
+      - [将查询出的数据插入到另一个表中](#将查询出的数据插入到另一个表中)
+    - [更新和删除数据](#更新和删除数据)
+      - [更新数据](#更新数据)
+      - [update 使用子查询](#update-使用子查询)
+      - [删除数据](#删除数据)
+    - [创建和操控表](#创建和操控表)
+      - [创建表](#创建表)
+      - [not null](#not-null)
+      - [主键](#主键)
+      - [auto\_increment](#auto_increment)
+      - [last\_insert\_id](#last_insert_id)
+      - [指定默认值](#指定默认值)
+      - [引擎类型](#引擎类型)
+      - [更新表](#更新表)
+      - [删除表](#删除表)
+      - [重命表](#重命表)
+    - [使用视图](#使用视图)
+      - [视图](#视图)
+      - [使用视图](#使用视图-1)
+      - [使用视图重新格式化检索出的数据](#使用视图重新格式化检索出的数据)
+      - [使用视图过滤不想要的数据](#使用视图过滤不想要的数据)
+      - [使用视图与计算字段](#使用视图与计算字段)
+      - [更新视图](#更新视图)
+    - [使用存储过程](#使用存储过程)
+      - [存储过程](#存储过程)
+      - [执行存储过程](#执行存储过程)
+      - [创建存储过程](#创建存储过程)
+      - [删除存储过程](#删除存储过程)
+      - [使用参数](#使用参数)
+      - [建立只能存储过程](#建立只能存储过程)
+      - [检查存储过程](#检查存储过程)
 
 #### 查询去除重复的结果集
 
@@ -772,3 +788,220 @@ drop table users;
 ```mysql
 rename table users to users;
 ```
+
+#### 使用视图
+
+##### 视图
+
+```mysql
+# 视图是一个虚拟的表 它不包含任何数据和表结构 它只包含了一个SQL 语句
+# 作用： 重用SQL 语句
+# 		简化复杂的SQL语句（把复杂的SQL语句封装成视图）
+# 性能：性能不好
+# 规则：视图名必须唯一
+#	   视图可以使用Order By 如果 select中也存在order by 视图中的将忽略
+#	   视图可以和表一起使用 可以写一条联结表和视图的查询
+```
+
+##### 使用视图
+
+```mysql
+create view productcustomers as select cust_name,cust_contact,prod_id,from customers,order,orderitems where customers.cust_id = orders.cust_id and orderitems.order_num = orders.order_num;
+# 创建一个名字为 productcustomers 的视图
+# 这个视图联结了三个表 关联了 订单 订单商品 客户三个表之间的联系
+
+select * from productcustomers; 
+# 使用视图查询订购过产品的所有用户
+select * from productcustomers where prod_id = 'tnt';
+# 查询订购过tnt 产品的用户信息
+# 原理： productcustomers = create view productcustomers as select cust_name,cust_contact,prod_id,from customers,order,orderitems where customers.cust_id = orders.cust_id and orderitems.order_num = orders.order_num + where prod_id = 'tnt'；
+```
+
+##### 使用视图重新格式化检索出的数据
+
+```mysql
+create view vendorlocations as select concat(rtrim(vend_name),'(',rtrim(vend_country),')') as vend_title from vendors order by vend_name;
+# 创建一个视图 查询处理后的供应商名字
+select * from vendorlocations;
+```
+
+##### 使用视图过滤不想要的数据
+
+```mysql
+create view customeremaillist as select sust_id,cust_name,cust_email from customers where cust_email is not null;
+# 创建一个视图名字为 customeremaillist 查询用户信息过滤邮箱为空的数据
+select * from customeremaillist;
+# 如果视图定义中存在where 使用视图时也使用了where 那么查询结果将自动组合 并且关系
+```
+
+##### 使用视图与计算字段
+
+```mysql
+create view orderitemsexpanded as select order_num,prod_id,quantity,item_price,quantity*item_price as expanded_price from orderitems;
+# 创建视图名字为 orderitemsexpanded 查询订单商品信息 并计算商品总价格 别名为 expanded_price
+select * from orderitemsexpanded where order_num = 20006;
+# 查询订单商品表订单号为 20006 的订单商品信息和 商品总价格
+```
+
+##### 更新视图
+
+```mysql
+# 规则: 如果使用视图进行数据的更新或删除则 视图语句中不能包含以下操作
+# group by 
+# having
+# 联结
+# 子查询
+# 并且
+# 聚集函数
+# distinct
+# 导出列
+```
+
+#### 使用存储过程
+
+##### 存储过程
+
+```mysql
+# 可以把存储过程理解成 一组查询语句 批文件
+# 作用：
+# 封装一组SQL语句 简化复杂的操作流程
+# 保证数据完整性
+# 提高性能 存储过程比单独执行sql语句要快
+```
+
+##### 执行存储过程
+
+```mysql
+call productpricing(@pricelow,@pricehigh,@priceaverage);
+```
+
+##### 创建存储过程
+
+```mysql
+create procedure productpricing() 
+begin 
+select avg(prod_price) as priceaverage from products;
+end;
+# 分析
+# create procedure 存储过程名()
+# begin
+# sql 语句
+# end;
+
+# 临时修改分隔符命令 delimiter 分隔符
+call productpricing();
+#调用存储过程
+```
+
+##### 删除存储过程
+
+```mysql
+drop procedure if exists productpricing;
+# 只需要指定存储过程名字 不需要()
+```
+
+##### 使用参数
+
+```mysql
+create procedure productpricing(
+	out pl decimal(8,2),
+    out ph decimal(8,2),
+    out pa decimal(8,2)
+)
+begin
+	select min(prod_price)
+	into pl from products;
+	select max(prod_price)
+	into ph from products;
+	select avg(prod_price)
+	into pa from products;
+end;
+
+# 分析
+# 创建存储过程 名字为 productpricing 并设置三个形参
+# 定义返回参数 pl ph pa  指定接受参数的变量类型为 decimal 
+# 使用计算函数指定要查询的字段 并使用 into 调用 变量 pl 
+
+
+call productpricing(@pricelow,@pricehigh,@priceaverage);
+# 分析
+# 传递参数需要使用@开头
+# 调用结果不显示任何数据 但是返回 可以显示的变量
+select @pricehigh,@pricelow;
+# 返回结果为 @pricehigh 55.00 @pricelow 2.50
+
+create procedure ordertotal(in onumber int, out ototal decimal(8,2))
+begin
+	select sum(item_price*quantity)
+	from orderitems
+	where order_num = onumber
+	into ototal;
+end;
+# 分析 创建一个名为 ordertotal 的存储过程 指定传参 onumber int 类型, 返回参数 ototal decimal 类型
+# 查询订单商品 商品价格总和 条件为 订单号等于传入的订单号
+# into 存储查询结果到变量 ototal;
+
+call ordertotal(20006,@total);
+# 分析 调用存储过程 ordertotal 并传递参数20006 设置返回参数为@total
+select @total;
+# 查询结果 @total 149.22
+
+```
+
+##### 建立只能存储过程
+
+```mysql
+create procedure ordertotal(
+	in onumber int,
+    in taxable boolean,
+    out ototal decimal(8,2)
+) comment 'xxxxxxx'
+begin 
+-- xcxxxx
+declare total decimal(8,2);
+declare taxrate int default 6;
+
+select sum(item_price*quantity)
+from orderitems
+where order_num = onumber
+into total;
+if taxable then
+	select total+(total/100*taxrate) into total;
+endif;
+select total into ototal;
+end;
+# 关键词解释
+# create procedure 创建存储过程
+# in onumber int 表示是传入的参数 参数名 onumber int
+# comment 存储过程注释
+# begin 存储过程代码 开始
+# declare total decimal(8,2) 定义临时变量 total 变量类型 decimal(8,2)
+# into total 查询结果赋值给 total 变量
+# if taxable then 判断变量taxable 值是否为 true
+# endif 结束判断
+# end 存储过程结束
+
+# 存储过程解析
+# 定义了三个变量 一个传入的订单号 一个传入的是否查询税费 一个返回总计
+# 将根据参数订单号查询的订单商品价格总和赋值给 变量 total
+# 判断传入的参数taxable 是否为true 如果是将total + 定义的税费比例并重新赋值给total
+# 将total 赋值给返回的参数 ototal
+
+call ordertotal(20005,0,@total);
+# 调用存储过程ordertotal 订单号 20005 不计算税费 返回参数@total
+select @total;
+# 查询返回参数total
+
+```
+
+##### 检查存储过程
+
+```mysql
+show create procedure ordertotal;
+show procedure status like 'ordertotal';
+show procedure status;
+```
+
+##### 
+
+
